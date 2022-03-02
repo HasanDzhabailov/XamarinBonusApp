@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Real2App.Views.Pages.TabbedPages.FeedbackPage"
+             xmlns:local="clr-namespace:AM.Views">
+    
+    <StackLayout x:Name="stackLayoutFullPage" Padding="20">
+        <Label x:Name="textInput" 
+               Text = "Введите текст сообщения"
+               HorizontalOptions="Center"
+               TextColor="Black"
+               FontSize="14"/>
+        <StackLayout BackgroundColor="Gray" Padding="1">
+            <Editor x:Name="textEditor"
+                    BackgroundColor="White" 
+                    FontSize="16"
+                    HeightRequest="150"/>
+        </StackLayout>
+        <Button x:Name="attachPhoto" 
+                           CornerRadius="5"
+                           TextColor="White"
+                           BackgroundColor="Black"
+                           Text = "Прикрепить фото"
+                           Margin = "30,30,30,15"
+                HeightRequest="50"
+                           Clicked="GetPhotoAsync"/>
+        <local:ButtonFrame x:Name="buttonActivity" 
+                CornerRadius = "5"
+                           HeightRequest="50"
+                Text = "Отправить"
+                TextColor = "Black"
+                BackgroundColor = "#ffdd00"
+                OnClick="RequestToMail"/>
+    </StackLayout>
+</ContentPage>

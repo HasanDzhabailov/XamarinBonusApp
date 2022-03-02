@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:CustomPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:base="clr-namespace:AM.Views.Pages"
+             xmlns:notification="clr-namespace:Real2App.AppData.Notifications"
+             xmlns:nview="clr-namespace:Real2App.Views"
+             mc:Ignorable="d"
+             x:Class="Real2App.Views.Pages.TabbedPages.NotificationPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Array x:Key="notifications" Type="{x:Type notification:NotificationRow}">
+                <notification:NotificationRow Date="00"/>
+            </x:Array>
+        </ResourceDictionary>
+        
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ListView Grid.Row="0" Grid.Column="0"
+                      ItemsSource="{StaticResource notifications}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                           <nview:NotificationListElement/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+   </ContentPage.Content>
+</base:CustomPage>
